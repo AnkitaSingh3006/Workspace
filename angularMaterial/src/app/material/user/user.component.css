@@ -1,0 +1,57 @@
+.container {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .tableDiv {
+    width: 60%;
+    height: 100%;
+    float: left;
+  }
+  
+  .image {
+    width: calc(100% - 60%);
+    height: 100%;
+    float: left;
+    text-align: center;
+  }
+  
+  .tableDiv th {
+    text-align: center;
+  }
+  
+  table {
+    width: 95%;
+    height: 85%;
+    text-align: center;
+    position: relative;
+    left: 2%;
+  }
+  .example-full-width{
+    position: relative;
+    left: 2%;
+    top :5px;
+  }
+  .mat-column-id {
+    border-right: 1px solid silver;
+  }
+  
+  .mat-column-email {
+    border-right: 1px solid silver;
+  }
+  
+  .mat-column-first_name {
+    border-right: 1px solid silver;
+  }
+  
+  .mat-column-last_name {
+    border-right: 1px solid silver;
+  }
+  
+  .mat-column-avatar {
+    border-right: 1px solid silver;
+  }
+  
+  .mat-cell {
+    padding: 10px;
+  }
