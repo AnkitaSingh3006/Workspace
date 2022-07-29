@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,32 +10,33 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
   
-   
-  loginUserData = {
-    email :"",
-    password : ""
-  }
 
-  constructor(private auth:AuthService, private router:Router) { console.log("login loaded") }
+
+  constructor(private auth:AuthService, private route:Router) { console.log("login loaded") }
+ 
+  login = new FormGroup({
+    "email": new FormControl("", Validators.required),
+    "password": new FormControl("", Validators.required),
+  });
+
+responsedata:any;
 
   loginUser() {
-    console.warn(this.loginUserData)
-    this.auth.loginUser(this.loginUserData)
-      .subscribe(
-        (res) => {
-          console.log(res);
-        },
-        (err) => {
-          console.log("Enter valid data");
+    if (this.login.valid) {
+      console.warn(this.login);
+      this.auth.loginUser(this.login.value).subscribe(result => {
+        if (result != null) {
+          this.responsedata = result;
+          console.log('token', this.responsedata.token)
+          this.route.navigate(['/material/user']);
+        } 
+        else{
+          console.log('error')
         }
-
-      )
-    this.router.navigate(['/material/user']);
+      })
   }
-
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  passwordFormControl = new FormControl('', [Validators.required, Validators.minLength(6)]);
-
+}
+  
   hide = true;
 
   ngOnInit(): void {
