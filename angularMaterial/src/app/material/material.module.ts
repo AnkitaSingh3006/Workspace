@@ -17,6 +17,7 @@ import { UserComponent } from './user/user.component';
 import { MatTableModule } from '@angular/material/table';
 import { AvatarComponent } from './avatar/avatar.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -41,7 +42,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormsModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSnackBarModule
 
   ],
   providers: [AuthService]
