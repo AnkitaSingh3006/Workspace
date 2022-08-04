@@ -1,4 +1,4 @@
-<div class="center-content">
+<div class="center-content"  [class.spinner]="loading">
     <mat-card class="example-card">
         <mat-card-header>
             <mat-card-title>Login/SignUp</mat-card-title>
@@ -6,11 +6,12 @@
         <mat-card-content>
             <mat-tab-group>
                 <mat-tab label="Login">
-                    <form class="example-form"  [formGroup]="login" (ngSubmit)="loginUser()">
+                    <form class="example-form" name="login" [formGroup]="login" (ngSubmit)="loginUser()">
                         <mat-form-field class="example-full-width" appearance="outline">
                             <mat-label>Email</mat-label>
                             <input matInput placeholder="Ex. sush.kumar@.in" type="email" formControlName="email">
                             <mat-icon matSuffix>email</mat-icon>
+                            <mat-error *ngIf="login.get('email').hasError('required')">Please enter email</mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="example-full-width" appearance="fill">
@@ -20,10 +21,12 @@
                                 [attr.aria-pressed]="hide">
                                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                             </button>
+                            <mat-error *ngIf="login.get('password').hasError('required')">Please enter password</mat-error>
+                            <mat-error *ngIf="login.get('password').hasError('pattern')">Please enter strong password e.g.xYz2345</mat-error>
                         </mat-form-field>
 
 
-                        <button mat-button matTooltip="Click to login" color="primary" type="submit">Login</button>
+                        <button mat-button matTooltip="Click to login" color="primary" type="submit" [disabled]="!login.valid">Login</button>
 
                     </form>
 
