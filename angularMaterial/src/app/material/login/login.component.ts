@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   constructor(private auth: AuthService, private route: Router, private _snackBar: MatSnackBar, private userInfo:FormBuilder) { console.log("login loaded") }
 
   login = this.userInfo.group({
-    "email":['',[Validators.required,Validators.email]],
+    "email": ['', Validators.compose([Validators.email,Validators.required])],
     "password": ['',Validators.compose([Validators.required,Validators.pattern('[A-Za-z0-9]')])],
   });
 
