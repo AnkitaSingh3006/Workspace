@@ -11,7 +11,7 @@
                             <mat-label>Email</mat-label>
                             <input matInput placeholder="Ex. sush.kumar@.in" type="email" formControlName="email">
                             <mat-icon matSuffix>email</mat-icon>
-                            <mat-error *ngIf="login.get('email').hasError('required')">Please enter password</mat-error>
+                            <mat-error *ngIf="login.get('email')?.errors?.['required']">Please enter password</mat-error>
                         </mat-form-field>
 
                         <mat-form-field class="example-full-width" appearance="fill">
@@ -21,12 +21,14 @@
                                 [attr.aria-pressed]="hide">
                                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                             </button>
-                            <mat-error *ngIf="login.get('password').hasError('required')">Please enter password</mat-error>
-                            <mat-error *ngIf="login.get('password').hasError('pattern')">Please enter strong password e.g.xYz2345</mat-error>
+                            <mat-error *ngIf="login.get('password')?.errors?.['required']">Please enter password</mat-error>
+                            <mat-error *ngIf="login.get('password')?.errors?.['pattern']">Please enter strong password e.g.xYz2345</mat-error>
+                            <mat-error *ngIf="login.get('password')?.errors?.['minlength']">Password must be at least 5 character!</mat-error>
+                            <mat-error *ngIf="login.get('password')?.errors?.['maxlength']">Password must not be more than 20 character!</mat-error>
                         </mat-form-field>
 
 
-                        <button mat-button matTooltip="Click to login" color="primary" type="submit" [disabled]="!login.valid">Login</button>
+                        <button mat-button matTooltip="Click to login" color="primary" type="submit">Login</button>
 
                     </form>
 

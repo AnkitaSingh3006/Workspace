@@ -1,1 +1,4 @@
-<div class="pic"><img src="{{image}}"></div>
+<div class="container" *ngIf="myImageData">
+    <div><img src="{{myImageData?.avatar}}"></div>
+    <p>{{myImageData?.first_name + " " + myImageData?.last_name}}</p>
+</div>

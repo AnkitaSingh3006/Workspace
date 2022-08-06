@@ -21,9 +21,11 @@ export class LoginComponent implements OnInit {
 
   constructor(private auth: AuthService, private route: Router, private _snackBar: MatSnackBar, private userInfo:FormBuilder) { console.log("login loaded") }
 
+   validPattern = "^[a-zA-Z0-9]{5,20}$";
+
   login = this.userInfo.group({
     "email": ['', Validators.compose([Validators.email,Validators.required])],
-    "password": ['',Validators.compose([Validators.required,Validators.pattern('[A-Za-z0-9]')])],
+    "password": ['',Validators.compose([Validators.required,Validators.pattern(this.validPattern),Validators.minLength(5),Validators.maxLength(20)])],
   });
 
   responsedata: any;
