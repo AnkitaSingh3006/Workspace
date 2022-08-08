@@ -25,9 +25,9 @@ export class LoginComponent implements OnInit {
 
   login = this.userInfo.group({
     "email": ['', Validators.compose([Validators.email,Validators.required])],
-    "password": ['',Validators.compose([Validators.required,Validators.pattern(this.validPattern),Validators.minLength(5),Validators.maxLength(20)])],
+    "password": ['',Validators.compose([Validators.required,Validators.pattern(this.validPattern)])],
   });
-
+  // Validators.minLength(5),Validators.maxLength(20)
   responsedata: any;
 
   loginUser() {

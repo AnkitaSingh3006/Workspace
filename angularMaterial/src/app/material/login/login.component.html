@@ -22,9 +22,9 @@
                                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                             </button>
                             <mat-error *ngIf="login.get('password')?.errors?.['required']">Please enter password</mat-error>
-                            <mat-error *ngIf="login.get('password')?.errors?.['pattern']">Please enter strong password e.g.xYz2345</mat-error>
-                            <mat-error *ngIf="login.get('password')?.errors?.['minlength']">Password must be at least 5 character!</mat-error>
-                            <mat-error *ngIf="login.get('password')?.errors?.['maxlength']">Password must not be more than 20 character!</mat-error>
+                            <mat-error *ngIf="login.get('password')?.errors?.['pattern']">Please enter strong password e.g.xYz2345 character should be between 5 t0 20</mat-error>
+                            <!-- <mat-error *ngIf="login.get('password')?.errors?.['minlength']">Password must be at least 5 character!</mat-error>
+                            <mat-error *ngIf="login.get('password')?.errors?.['maxlength']">Password must not be more than 20 character!</mat-error> -->
                         </mat-form-field>
 
 
