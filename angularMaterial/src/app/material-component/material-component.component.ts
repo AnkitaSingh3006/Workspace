@@ -85,4 +85,13 @@ export class MaterialComponentComponent implements OnInit {
   toggleBadgeVisibility() {
     this.hidden = !this.hidden;
   }
+
+  checked = false;
+  indeterminate = false;
+  labelPosition: 'before' | 'after' = 'after';
+  disabled = false;
+
+  panelOpenState = false;
+
+  
 }

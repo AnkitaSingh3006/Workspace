@@ -13,11 +13,22 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatIconModule} from '@angular/material/icon';
 import { MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
+import {MatRadioModule} from '@angular/material/radio';
+import { DatepickerComponent } from './datepicker/datepicker.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatExpansionModule} from '@angular/material/expansion'; 
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatRippleModule} from '@angular/material/core';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @NgModule({
   declarations: [
-    MaterialComponentComponent
+    MaterialComponentComponent,
+    DatepickerComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +43,16 @@ import { MatBottomSheetModule} from '@angular/material/bottom-sheet';
     MatSlideToggleModule,
     MatBadgeModule,
     MatIconModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatExpansionModule,
+    MatPaginatorModule,
+    MatRippleModule,
+    MatSnackBarModule
   ]
 })
 export class MaterialComponentModule { }
