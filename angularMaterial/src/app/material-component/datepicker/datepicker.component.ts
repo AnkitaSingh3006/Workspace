@@ -3,9 +3,6 @@ import {FormGroup, FormControl} from '@angular/forms';
 
 import {MatSnackBar} from '@angular/material/snack-bar';
 
-const today = new Date();
-const month = today.getMonth();
-const year = today.getFullYear();
 
 @Component({
   selector: 'app-datepicker',
@@ -14,14 +11,12 @@ const year = today.getFullYear();
 })
 export class DatepickerComponent implements OnInit {
 
-  campaignOne = new FormGroup({
-    start: new FormControl(new Date(year, month, 13)),
-    end: new FormControl(new Date(year, month, 16)),
+  range = new FormGroup({
+    start: new FormControl<Date | null>(null),
+    end: new FormControl<Date | null>(null),
   });
-  campaignTwo = new FormGroup({
-    start: new FormControl(new Date(year, month, 15)),
-    end: new FormControl(new Date(year, month, 19)),
-  });
+
+ 
 
   centered = false;
   disabled = false;
@@ -34,6 +29,7 @@ export class DatepickerComponent implements OnInit {
     this._snackBar.open(message, action);
   }
 
+  
   constructor(private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
