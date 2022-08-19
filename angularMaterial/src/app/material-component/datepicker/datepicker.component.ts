@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl} from '@angular/forms';
-
 import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 
 @Component({
@@ -29,6 +29,7 @@ export class DatepickerComponent implements OnInit {
     this._snackBar.open(message, action);
   }
 
+  value = 'Clear me';
   
   constructor(private _snackBar: MatSnackBar) { }
 

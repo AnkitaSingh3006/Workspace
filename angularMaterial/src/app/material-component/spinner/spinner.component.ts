@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
-import { AfterViewInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 export interface UserData {
   id: string;
@@ -10,6 +12,7 @@ export interface UserData {
   progress: string;
   fruit: string;
 }
+
 /** Constants used to fill up our data base. */
 const FRUITS: string[] = [
   'blueberry',
@@ -46,21 +49,28 @@ const NAMES: string[] = [
 
 
 @Component({
-  selector: 'app-pagination',
-  templateUrl: './pagination.component.html',
-  styleUrls: ['./pagination.component.css']
+  selector: 'app-spinner',
+  templateUrl: './spinner.component.html',
+  styleUrls: ['./spinner.component.css']
 })
-export class PaginationComponent implements AfterViewInit {
+export class SpinnerComponent implements OnInit {
 
+  color: ThemePalette = 'primary';
+  mode: ProgressSpinnerMode = 'determinate';
+  value = 50;
+
+
+
+  ngOnInit(): void {
+  }
   displayedColumns: string[] = ['id', 'name', 'progress', 'fruit'];
   dataSource: MatTableDataSource<UserData>;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-
-
+  @ViewChild(MatPaginator) paginator: any;
+  @ViewChild(MatSort) sort: any;
 
   constructor() {
+    // Create 100 users
     const users = Array.from({ length: 100 }, (_, k) => createNewUser(k + 1));
 
     // Assign the data to the data source for the table to render
@@ -97,6 +107,3 @@ function createNewUser(id: number): UserData {
     fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
   };
 }
-
-
-

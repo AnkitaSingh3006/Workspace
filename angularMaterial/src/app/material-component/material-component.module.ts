@@ -23,9 +23,23 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatRippleModule } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { PaginationComponent } from './pagination/pagination.component';
 import { MatTableModule } from '@angular/material/table';
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatChipsModule } from '@angular/material/chips';
+import { DialogComponent } from './dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { SpinnerComponent } from './spinner/spinner.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatTreeModule } from '@angular/material/tree';
 
 
 
@@ -33,8 +47,13 @@ import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
   declarations: [
     MaterialComponentComponent,
     DatepickerComponent,
-    PaginationComponent,
-    BottomSheetComponent
+    BottomSheetComponent,
+    DialogComponent,
+    SpinnerComponent
+  ],
+  entryComponents: [
+    BottomSheetComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
@@ -59,7 +78,20 @@ import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
     MatPaginatorModule,
     MatRippleModule,
     MatSnackBarModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonToggleModule,
+    MatChipsModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatListModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatSliderModule,
+    MatSortModule,
+    MatTooltipModule,
+    MatTreeModule
   ]
 })
 export class MaterialComponentModule { }
